@@ -1,6 +1,6 @@
 # CSE284_Final_Project
 
-## CSE 284 - Personal Genomics Project: Python Implementation of Linear Regression for SNP Analysis
+## Personal Genomics Project: Python Implementation of Linear Regression for SNP Analysis
 #### Team Members: Andrew Ghafari (A59020215) and Morgan Kelley (A59019598)
 
 In this project, we aim to create a Python script that implements linear regression with multiple covariates to analyze SNP (Single Nucleotide Polymorphisms) data, directly comparing our results with those obtained from the Plink command-line tool. Our focus is on estimating the association between genetic variants and studied traits using a compressed Variant Call Format (VCF) file as input.
