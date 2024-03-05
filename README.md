@@ -19,5 +19,12 @@ Running the code is pretty straightforward, the first part of it is running the 
 
 For the python file, everything you need is present inside the notebook, you just need to run everything sequentially and make sure you have the proper libraries installed before. 
 
+(You can also check out the pdf for an already compiled version)
+
 Please let us know if you face any difficulties, we are happy to assist. 
+
+# Future Work:
+
+We are still working on the repo, and will be cleaning the code and adding more analysis before we deliver the final project. Thank you for your patience.
+
 
