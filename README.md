@@ -12,6 +12,43 @@ For this analysis, we utilize the 1000 Genomes dataset, covering all 22 chromoso
 
 This initiative is conducted under Option #1 of the project guidelines for CSE 284 - Personal Genomics, offered by Professor Gymrek.
 
+# Datasets
+ps3_gwas.vcf: https://drive.google.com/file/d/17Lr1YpH88fVytZj7FYFau4S0zLo9vxLJ/view?usp=drive_link
+
+vcfdfout.csv: https://drive.google.com/file/d/1_Ll7ZcPNY5UCpEOb4ndbxSE9VqzXrURT/view?usp=drive_link
+
+ps3_gwas.assoc.linear: https://drive.google.com/file/d/1XQZSAZjCgWIm8pi_rOTNqGdh2Uc1vmhy/view?usp=drive_link
+
+numeric_df_first_quarter.csv:
+https://drive.google.com/file/d/1w7eOc5qI6_sxKxn2lzYfzbv8vsISvjVN/view?usp=drive_link
+
+numeric_df_second_quarter.csv
+https://drive.google.com/file/d/1LQ8RhJOD_BC7dzqEuZVurPZZJyg0ygBS/view?usp=drive_link
+
+numeric_second_half_part1_df.csv:
+https://drive.google.com/file/d/1KRy5SDyvoFGuqpsHCw-_sj9ydPIH39zu/view?usp=drive_link
+
+numeric_second_half_part2_df.csv:
+https://drive.google.com/file/d/1BwNeRY9lwiZ6J2Ia67dArEEeG2Jupz-0/view?usp=drive_link
+
+filtered_df.csv:
+https://drive.google.com/file/d/1Jg8NsQVbtrJPLgMFz3cxR1y_1J0vGV0F/view?usp=drive_link
+
+concat_w_phen.csv:
+https://drive.google.com/file/d/1leGlbsmFMIfjceoUgjO5rnapMFuiDi_R/view?usp=drive_link
+
+linRegResults.csv:
+https://drive.google.com/file/d/1BBqy3v9A2ROZh351Lx-gMj-9lFStlGgK/view?usp=drive_link
+
+concatenated_df_final.csv:
+https://drive.google.com/file/d/1qZrUtbmKuY-p5wX59QP54sgMpuYBtRNP/view?usp=drive_link
+
+ps3_gwas.phen:
+https://drive.google.com/file/d/1kWi1_M5T-0f84XX_DNvAlGVEifTWSrwk/view?usp=drive_link
+
+
+
+
 
 # Steps to run the code. 
 
