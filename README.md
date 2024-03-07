@@ -62,6 +62,5 @@ Please let us know if you face any difficulties, we are happy to assist.
 
 # Future Work:
 
-We are still working on the repo, and will be cleaning the code and adding more analysis before we deliver the final project. Thank you for your patience.
-
+For future work, we would like to implement this in other programming languages like C++ and Java and compare their performance. 
 
