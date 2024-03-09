@@ -36,6 +36,26 @@ python gwas_analysis.py --vcf input_file.vcf.gz --pheno phenotype.phen --out out
     --pheno: Path to the file containing phenotype data.
     --out: Prefix for the output files.
     
+# Algorithm
+
+#### Data Preprocessing
+* VCF Parsing: The algorithm starts by parsing the VCF file to extract SNP information. This process involves reading the VCF, filtering out header lines, and then converting the relevant SNP data into a pandas DataFrame for easier manipulation.
+* Allele Frequency Calculation: For each SNP, we calculate allele counts by parsing genotype data. We then compute the minor allele frequency (MAF) by dividing the count of the minor allele by the total number of alleles observed.
+* Filtering: SNPs with a MAF less than 0.05 are filtered out to focus on common variants, reducing the complexity and improving the efficiency of the analysis.
+
+#### Genotype and Phenotype Integration
+* Phenotype Data Processing: The phenotype data, provided in a separate file, is read and integrated with the genotype data. This step ensures that each sample's genotype and phenotype information is aligned for the regression analysis.
+* Data Transformation: The genotype data is transformed to numeric format, accommodating the regression analysis requirements. This involves converting genotype strings to integers that represent allele counts.
+
+#### Linear Regression
+* Regression Model: With the prepared dataset, we perform linear regression for each SNP, using its allele counts as the independent variable and the phenotype value as the dependent variable. The regression analysis is conducted using the statsmodels library, which provides detailed statistics for each SNP, including beta coefficients and p-values.
+* Result Filtering and Sorting: The results of the regression analysis are filtered and sorted based on the p-values to identify the SNPs with the most significant associations with the phenotype.
+
+#### Metrics Evaluation
+
+* Comparison with Plink Results: To validate our algorithm's effectiveness, we compare our linear regression results with those obtained from Plink. This involves calculating the mean absolute error (MAE), mean squared error (MSE), and root mean squared error (RMSE) for both p-values and beta coefficients, ensuring our Python implementation's accuracy aligns closely with Plink's established results.
+
+Our Python-based GWAS analysis algorithm is designed to be efficient, accurate, and user-friendly, providing a viable alternative to traditional command-line tools like Plink with the added flexibility and accessibility of Python for genomic research.
 
 # Datasets
 ps3_gwas.vcf: https://drive.google.com/file/d/17Lr1YpH88fVytZj7FYFau4S0zLo9vxLJ/view?usp=drive_link
@@ -91,12 +111,12 @@ The output of our script includes a detailed summary of the linear regression an
 
 In our analysis, we calculate the metrics:
 
-MAE for p-values: 0.0001235241545070243
-MSE for p-values: 5.163739526631637e-05
-RMSE for p-values: 0.0071859164527787525
-MAE for beta coefficients: 0.11027235180768107
-MSE for beta coefficients: 0.059025047364823356
-RMSE for beta coefficients: 0.24295070974340321
+* MAE for p-values: 0.0001235241545070243
+* MSE for p-values: 5.163739526631637e-05
+* RMSE for p-values: 0.0071859164527787525
+* MAE for beta coefficients: 0.11027235180768107
+* MSE for beta coefficients: 0.059025047364823356
+* RMSE for beta coefficients: 0.24295070974340321
 
 # Contributors
 
@@ -112,8 +132,7 @@ Future directions for this project include extending the analysis to other progr
 We extend our gratitude to Professor Melissa Gymrek and the teaching staff of CSE 284 for their support and guidance throughout this project. We also thank the contributors of the 1000 Genomes Project for providing a rich dataset for our analysis.
 
 # References
-
-    Purcell, S., et al. (2007). PLINK: A Tool Set for Whole-Genome Association and Population-Based Linkage Analyses. American Journal of Human Genetics, 81(3), 559-575.
-    Python Software Foundation. Python Language Reference, version 3.x. https://python.org
+* Purcell, S., et al. (2007). PLINK: A Tool Set for Whole-Genome Association and Population-Based Linkage Analyses. American Journal of Human Genetics, 81(3), 559-575.
+* Python Software Foundation. Python Language Reference, version 3.x. https://python.org
 
 
