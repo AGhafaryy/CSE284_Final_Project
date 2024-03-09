@@ -58,40 +58,12 @@ python gwas_analysis.py --vcf input_file.vcf.gz --pheno phenotype.phen --out out
 Our Python-based GWAS analysis algorithm is designed to be efficient, accurate, and user-friendly, providing a viable alternative to traditional command-line tools like Plink with the added flexibility and accessibility of Python for genomic research.
 
 # Datasets
-ps3_gwas.vcf: https://drive.google.com/file/d/17Lr1YpH88fVytZj7FYFau4S0zLo9vxLJ/view?usp=drive_link
 
-vcfdfout.csv: https://drive.google.com/file/d/1_Ll7ZcPNY5UCpEOb4ndbxSE9VqzXrURT/view?usp=drive_link
+The datasets that we used and produced during our implementation can be found through our Google Drive link:
 
-ps3_gwas.assoc.linear: https://drive.google.com/file/d/1XQZSAZjCgWIm8pi_rOTNqGdh2Uc1vmhy/view?usp=drive_link
+https://drive.google.com/drive/folders/1qRffK7Sr2Z7onwI9QyoyMFd-UoVbxQjF?usp=drive_link
 
-numeric_df_first_quarter.csv:
-https://drive.google.com/file/d/1w7eOc5qI6_sxKxn2lzYfzbv8vsISvjVN/view?usp=drive_link
-
-numeric_df_second_quarter.csv
-https://drive.google.com/file/d/1LQ8RhJOD_BC7dzqEuZVurPZZJyg0ygBS/view?usp=drive_link
-
-numeric_second_half_part1_df.csv:
-https://drive.google.com/file/d/1KRy5SDyvoFGuqpsHCw-_sj9ydPIH39zu/view?usp=drive_link
-
-numeric_second_half_part2_df.csv:
-https://drive.google.com/file/d/1BwNeRY9lwiZ6J2Ia67dArEEeG2Jupz-0/view?usp=drive_link
-
-filtered_df.csv:
-https://drive.google.com/file/d/1Jg8NsQVbtrJPLgMFz3cxR1y_1J0vGV0F/view?usp=drive_link
-
-concat_w_phen.csv:
-https://drive.google.com/file/d/1leGlbsmFMIfjceoUgjO5rnapMFuiDi_R/view?usp=drive_link
-
-linRegResults.csv:
-https://drive.google.com/file/d/1BBqy3v9A2ROZh351Lx-gMj-9lFStlGgK/view?usp=drive_link
-
-concatenated_df_final.csv:
-https://drive.google.com/file/d/1qZrUtbmKuY-p5wX59QP54sgMpuYBtRNP/view?usp=drive_link
-
-ps3_gwas.phen:
-https://drive.google.com/file/d/1kWi1_M5T-0f84XX_DNvAlGVEifTWSrwk/view?usp=drive_link
-
-
+We describe in our .ipynb file when each dataset was produced. Many of these were created as checkpoints to ease the implementation.
 
 
 
