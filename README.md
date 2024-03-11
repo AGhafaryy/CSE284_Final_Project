@@ -5,13 +5,12 @@
 
 # Introduction
 
-Genome-Wide Association Studies (GWAS) analyze the association between genetic variants (usually Single Nucleotide Polymorphisms, or SNPs) across different individuals to discover genetic associations with observable traits. This project aims to replicate the functionality of the Plink command-line tool in Python, specifically focusing on the use of linear regression to assess the association between SNPs and a quantitative trait while controlling for confounding factors such as ancestry. Our Python script processes VCF files to conduct a GWAS using the --linear option, similar to the command plink --vcf [file] --linear --maf 0.05 --pheno [file] --allow-no-sex --out ps3_gwas, to identify common SNPs (Minor Allele Frequency or MAF > 0.05) associated with the trait of interest.
+Genome-Wide Association Studies (GWAS) analyze the association between genetic variants (usually Single Nucleotide Polymorphisms, or SNPs) across different individuals to discover genetic associations with observable traits. This project aims to replicate the functionality of the Plink command-line tool in Python, specifically focusing on the use of linear regression to assess the association between SNPs and a quantitative trait while controlling for confounding factors such as ancestry. Our Python script processes VCF files to conduct a GWAS using the --linear option, similar to the command **plink --vcf [file] --linear --maf 0.05 --pheno [file] --allow-no-sex --out ps3_gwas**, to identify common SNPs (Minor Allele Frequency or MAF > 0.05) associated with the trait of interest.
 
 In this project, we directlt compare our results with those obtained from the Plink command-line tool. Our focus is on estimating the association between genetic variants and studied traits using a compressed vcf file as input.
 
 The output of our script will provide statistical analysis including coefficients and p-values, to highlight potential genetic associations with the traits of interest. This endeavor not only aims to replicate the efficiency and accuracy of Plink's native capabilities but also to explore the performance of our Python-based approach versus other programming languages. 
 
-Future work includes replicating these scripts in other languages such as C++ or Java and comparing the results in terms of execution speed.
 
 For this analysis, we utilize the 1000 Genomes dataset, covering all 22 chromosomes available from the Public Datahub directory. This project stands as an excellent opportunity for us to dive into optimization techniques within Python, leveraging libraries like pandas for data manipulation and statsmodels for statistical analysis.
 
@@ -24,18 +23,18 @@ Before running our GWAS analysis script, ensure that your environment has the ne
 ```
 pip install pandas numpy statsmodels
 ```
-
-# Basic Usage
-
-To run the GWAS analysis using our Python script, navigate to the directory containing the script and execute it with the appropriate command-line arguments. The basic command structure is as follows:
-
+This is the exhaustive list of libraries required for our model:
 ```
-python gwas_analysis.py --vcf input_file.vcf.gz --pheno phenotype.phen --out output_prefix
+import argparse
+import pandas as pd
+import numpy as np
+import gzip
+from io import StringIO
+from tqdm import tqdm
+import statsmodels.api as sm
+from multiprocessing import Pool
 ```
-    --vcf: Path to the VCF file containing SNP data.
-    --pheno: Path to the file containing phenotype data.
-    --out: Prefix for the output files.
-    
+
 # Algorithm
 
 #### Data Preprocessing
@@ -57,25 +56,6 @@ python gwas_analysis.py --vcf input_file.vcf.gz --pheno phenotype.phen --out out
 
 Our Python-based GWAS analysis algorithm is designed to be efficient, accurate, and user-friendly, providing a viable alternative to traditional command-line tools like Plink with the added flexibility and accessibility of Python for genomic research.
 
-# Datasets
-
-The datasets that we used and produced during our implementation can be found through our Google Drive link:
-
-https://drive.google.com/drive/folders/1qRffK7Sr2Z7onwI9QyoyMFd-UoVbxQjF?usp=drive_link
-
-We describe in our .ipynb file when each dataset was produced. Many of these were created as checkpoints to ease the implementation.
-
-
-
-# Steps to run the code. 
-
-Running the code is pretty straightforward, the first part of it is running the  plink --vcf --linear --maf 0.05 --pheno --allow-no-sex command (the one we used for PA3), which will generate a .linear file. This should be pretty easy, since we have already done this in class before. 
-
-For the python file, everything you need is present inside the notebook, you just need to run everything sequentially and make sure you have the proper libraries installed before. 
-
-(You can also check out the pdf for an already compiled version)
-
-Please let us know if you face any difficulties, we are happy to assist. 
 
 # Results
 
@@ -89,6 +69,45 @@ In our analysis, we calculate the metrics:
 * MAE for beta coefficients: 0.11027235180768107
 * MSE for beta coefficients: 0.059025047364823356
 * RMSE for beta coefficients: 0.24295070974340321
+
+# Datasets
+
+The datasets that we used and produced during our implementation can be found through our Google Drive link:
+
+https://drive.google.com/drive/folders/1xLiMV_VE6ZGjsPoFl-XqzJvUCEiqqqkg?usp=sharing
+
+
+# Steps to Run the Code. 
+
+To run the GWAS analysis using our Python script:
+
+**1.** Navigate to the Google Drive link (in section Datasets) and download the files **ps3_gwas.vcf, ps3_gwas.assoc.linear, (RUN_ME)GWAS_Analysis.sh, FinalProjPlinkPYTHON1.py, and FinalProjPlinkPYTHON2.py**.
+
+* ps3_gwas.vcf contains the unformatted, unprocessed input vcf data.
+* ps3_gwas.assoc.linear contains the output results from Plink that we compare the results to
+* (RUN_ME)GWAS_Analysis.sh contains the entire shell script to run both of the python codes
+* FinalProjPlinkPYTHON1.py contains the initial code to preprocess the data
+* FinalProjPlinkPYTHON2.py contains the code to merge the data and perform linear regression evaluation.
+
+**Note that we had to break our .py code into two sections because of breaking from memory.** If you are on a system with more memory, feel free to combine the two .py codes into one file and adjust the shell script accordingly. 
+
+
+**2. (optional)** 
+We already ran the Plink command for you and saved the results in **ps3_gwas.assoc.linear**, which works if you are using the exact same data set we provided, **ps3_gwas.vcf**. If you are using different .vcf data, you **must** run the original Plink command for linear regression to compare with our output results.
+
+
+**3.** Navigate to the file you downloaded the data to.
+The shell script you will be running (found in the Google Drive link) is titled **(RUN_ME)GWAS_Analysis.sh**. 
+
+* In order to run, you must edit the above script to update **"VCF_PATH", "PHENO_PATH","PYTHON_SCRIPT_PATH_PREPROCESSING", "PYTHON_SCRIPT_PATH_1", "PYTHON_SCRIPT_PATH_2", and "PLINK_RESULTS_PATH"**. 
+
+**4.** You must make the shell script executable by navigating to the directory containing the script and running: `chmod +x (RUN_ME)GWAS_Analysis.sh`.
+  
+**5** Once the paths are set and the script is executable, you can run the script from the terminal with `./(RUN_ME)GWAS_Analysis.sh`.
+  
+* Note that this script will use both of the .py files we have provided, so you must save both in the same directory you are running the script in.
+* This code can take up to an hour to run so please be patient and please let us know if you face any difficulties, we are happy to assist. 
+
 
 # Contributors
 
