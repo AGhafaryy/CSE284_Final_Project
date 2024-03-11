@@ -78,6 +78,8 @@ In our analysis, we calculate the metrics:
 
 Please go over the QQPlots notebook and PDF for result, or check the image below. 
 
+![QQ plots results](qqplots.jpg)
+
 # Datasets
 
 The datasets that we used and produced during our implementation can be found through our Google Drive link:
