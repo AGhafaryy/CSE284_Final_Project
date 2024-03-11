@@ -5,7 +5,11 @@
 
 # Introduction
 
-Genome-Wide Association Studies (GWAS) analyze the association between genetic variants (usually Single Nucleotide Polymorphisms, or SNPs) across different individuals to discover genetic associations with observable traits. This project aims to replicate the functionality of the Plink command-line tool in Python, specifically focusing on the use of linear regression to assess the association between SNPs and a quantitative trait while controlling for confounding factors such as ancestry. Our Python script processes VCF files to conduct a GWAS using the --linear option, similar to the command **plink --vcf [file] --linear --maf 0.05 --pheno [file] --allow-no-sex --out ps3_gwas**, to identify common SNPs (Minor Allele Frequency or MAF > 0.05) associated with the trait of interest.
+Genome-Wide Association Studies (GWAS) analyze the association between genetic variants (usually Single Nucleotide Polymorphisms, or SNPs) across different individuals to discover genetic associations with observable traits. This project aims to replicate the functionality of the Plink command-line tool in Python, specifically focusing on the use of linear regression to assess the association between SNPs and a quantitative trait while controlling for confounding factors such as ancestry. Our Python script processes VCF files to conduct a GWAS using the --linear option, similar to the command 
+```
+plink --vcf [file] --linear --maf 0.05 --pheno [file] --allow-no-sex --out ps3_gwas
+```
+to identify common SNPs (Minor Allele Frequency or MAF > 0.05) associated with the trait of interest.
 
 In this project, we directlt compare our results with those obtained from the Plink command-line tool. Our focus is on estimating the association between genetic variants and studied traits using a compressed vcf file as input.
 
