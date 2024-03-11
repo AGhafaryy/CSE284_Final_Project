@@ -111,7 +111,7 @@ The shell script you will be running (found in the Google Drive link) is titled 
 
 **4.** You must make the shell script executable by navigating to the directory containing the script and running: `chmod +x (RUN_ME)GWAS_Analysis.sh`.
   
-**5** Once the paths are set and the script is executable, you can run the script from the terminal with `./(RUN_ME)GWAS_Analysis.sh`.
+**5.** Once the paths are set and the script is executable, you can run the script from the terminal with `./(RUN_ME)GWAS_Analysis.sh`.
   
 * Note that this script will use both of the .py files we have provided, so you must save both in the same directory you are running the script in.
 * At the end of the first py script, you should get four dataframe outputs **ps3_gwas_output_df1.csv, ps3_gwas_output_df2.csv, ps3_gwas_output_df3.csv, ps3_gwas_output_df4.csv**. The second .py code with then upload these 4 dataframes again (in order to not break on memory). If you have lots of memory, feel free to delete the download portion from **FinalProjPlinkPYTHON1.py** and the upload portion from **FinalProjPlinkPYTHON2.py**.
