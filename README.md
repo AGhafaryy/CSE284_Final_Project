@@ -74,6 +74,10 @@ In our analysis, we calculate the metrics:
 * MSE for beta coefficients: 0.059025047364823356
 * RMSE for beta coefficients: 0.24295070974340321
 
+# QQ Plots 
+
+Please go over the QQPlots notebook and PDF for result, or check the image below. 
+
 # Datasets
 
 The datasets that we used and produced during our implementation can be found through our Google Drive link:
