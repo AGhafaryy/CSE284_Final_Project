@@ -85,15 +85,19 @@ https://drive.google.com/drive/folders/1xLiMV_VE6ZGjsPoFl-XqzJvUCEiqqqkg?usp=sha
 
 To run the GWAS analysis using our Python script:
 
-**1.** Navigate to the Google Drive link (in section Datasets) and download the files **ps3_gwas.vcf, ps3_gwas.assoc.linear, (RUN_ME)GWAS_Analysis.sh, FinalProjPlinkPYTHON1.py, and FinalProjPlinkPYTHON2.py**.
+**1.** Navigate to the Google Drive link (in section Datasets) and download the files **ps3_gwas.vcf, and ps3_gwas.assoc.linear**.
 
 * ps3_gwas.vcf contains the unformatted, unprocessed input vcf data.
-* ps3_gwas.assoc.linear contains the output results from Plink that we compare the results to
+* ps3_gwas.assoc.linear contains the output results from Plink that we compare the results to.
+
+**2.** Download and save **(RUN_ME)GWAS_Analysis.sh, FinalProjPlinkPYTHON1.py, and FinalProjPlinkPYTHON2.py** from the files on GitHub.
+
 * (RUN_ME)GWAS_Analysis.sh contains the entire shell script to run both of the python codes
 * FinalProjPlinkPYTHON1.py contains the initial code to preprocess the data
 * FinalProjPlinkPYTHON2.py contains the code to merge the data and perform linear regression evaluation.
 
-**Note that we had to break our .py code into two sections because of breaking from memory.** If you are on a system with more memory, feel free to combine the two .py codes into one file and adjust the shell script accordingly. 
+**Note that we had to break our .py code into two sections because of breaking from memory.** If you are on a system with more memory, feel free to combine the two .py codes into one file and adjust the shell script accordingly. If your system breaks after the 
+
 
 
 **2. (optional)** 
@@ -110,6 +114,28 @@ The shell script you will be running (found in the Google Drive link) is titled 
 **5** Once the paths are set and the script is executable, you can run the script from the terminal with `./(RUN_ME)GWAS_Analysis.sh`.
   
 * Note that this script will use both of the .py files we have provided, so you must save both in the same directory you are running the script in.
+* At the end of the first py script, you should get four dataframe outputs **ps3_gwas_output_df1.csv, ps3_gwas_output_df2.csv, ps3_gwas_output_df3.csv, ps3_gwas_output_df4.csv**. The second .py code with then upload these 4 dataframes again (in order to not break on memory). If you have lots of memory, feel free to delete the download portion from **FinalProjPlinkPYTHON1.py** and the upload portion from **FinalProjPlinkPYTHON2.py**.
+* If your code breaks during the second .py script but you do have the 4 datasets downloaded already, you should restart your server and continue by running just the following code in your terminal:
+  ```
+  #!/bin/bash
+
+
+VCF_PATH="$HOME/1_284FinalProject/ps3_gwas.vcf.gz"
+PHENO_PATH="$HOME/1_284FinalProject/ps3_gwas.phen"
+OUTPUT_PREFIX="ps3_gwas_output"
+PYTHON_SCRIPT_PATH_1="$HOME/1_284FinalProject/FinalProjPlinkPYTHON1.py"
+PYTHON_SCRIPT_PATH_2="$HOME/1_284FinalProject/FinalProjPlinkPYTHON2.py"
+PLINK_RESULTS_PATH="$HOME/1_284FinalProject/ps3_gwas.assoc.linear"
+
+
+echo "Data preprocessing complete. Intermediate results saved."
+
+echo "Starting processing and analysis with intermediate results..."
+python $PYTHON_SCRIPT_PATH_2 --out $OUTPUT_PREFIX --plink_results $PLINK_RESULTS_PATH --pheno $PHENO_PATH
+
+
+echo "GWAS analysis complete."
+  ```
 * This code can take up to an hour to run so please be patient and please let us know if you face any difficulties, we are happy to assist. 
 
 
